@@ -4,7 +4,7 @@ import App from './App.jsx';
 import './index.css'
 import { registerPwa } from './lib/pwa'
 import { startProductionDiagnostics } from './lib/productionDiagnostics'
-import AppErrorBoundary from '@/components/AppErrorBoundary'
+import AppErrorBoundary from './components/AppErrorBoundary'
 
 startProductionDiagnostics()
 registerPwa()
