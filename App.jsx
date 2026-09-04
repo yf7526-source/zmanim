@@ -1,12 +1,12 @@
 import React, { Suspense, lazy, useEffect } from 'react';
-import { Toaster } from "@/components/ui/toaster"
-import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClientInstance } from '@/lib/query-client'
+import { Toaster } from "./components/ui/toaster"
+import { QueryClientProvider } from './tanstack/react-query'
+import { queryClientInstance } from './lib/query-client'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import Home from './pages/Home';
-import { AuthProvider, useAuth } from '@/lib/AuthContext';
-import UserNotRegisteredError from '@/components/UserNotRegisteredError';
+import { AuthProvider, useAuth } from './lib/AuthContext';
+import UserNotRegisteredError from './components/UserNotRegisteredError';
 // Add page imports here — secondary pages stay lazy-loaded to reduce the initial bundle.
 // Home loads directly so preview updates cannot leave the primary route on a stale chunk.
 const About = lazy(() => import('./pages/About'));
@@ -28,14 +28,14 @@ const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 const ResetPassword = lazy(() => import('./pages/ResetPassword'));
-import ProtectedRoute from '@/components/ProtectedRoute';
-import SeoMeta, { NoIndexMeta } from '@/components/SeoMeta';
-import PublicPageLinks from '@/components/PublicPageLinks';
-import { LanguageProvider } from '@/lib/LanguageContext';
-import LazyLoadingFallback from '@/components/LazyLoadingFallback';
-import LazyChunkErrorBoundary from '@/components/LazyChunkErrorBoundary';
-import PwaInstallPrompt from '@/components/PwaInstallPrompt';
-import PwaUpdatePrompt from '@/components/PwaUpdatePrompt';
+import ProtectedRoute from './components/ProtectedRoute';
+import SeoMeta, { NoIndexMeta } from './components/SeoMeta';
+import PublicPageLinks from './components/PublicPageLinks';
+import { LanguageProvider } from './lib/LanguageContext';
+import LazyLoadingFallback from './components/LazyLoadingFallback';
+import LazyChunkErrorBoundary from './components/LazyChunkErrorBoundary';
+import PwaInstallPrompt from './components/PwaInstallPrompt';
+import PwaUpdatePrompt from './components/PwaUpdatePrompt';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
