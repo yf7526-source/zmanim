@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Abril+Fatface:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 45% 6%;
+    --foreground: 45 100% 96%;
+    --card: 220 40% 8%;
+    --card-foreground: 45 100% 96%;
+    --popover: 220 40% 8%;
+    --popover-foreground: 45 100% 96%;
+    --primary: 45 92% 62%;
+    --primary-foreground: 220 45% 6%;
+    --secondary: 220 35% 12%;
+    --secondary-foreground: 45 100% 96%;
+    --muted: 220 30% 14%;
+    --muted-foreground: 220 20% 65%;
+    --accent: 45 85% 55%;
+    --accent-foreground: 220 45% 6%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 35% 15%;
+    --input: 220 35% 12%;
+    --ring: 45 92% 62%;
+    --radius: 1rem;
+    --font-heading: 'Heebo', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', 'Heebo', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Heebo', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --gold: 45 92% 62%;
+    --gold-bright: 48 100% 70%;
+    --gold-dim: 45 70% 45%;
+    --sky-day: 207 73% 73%;
+    --sidebar-background: 220 40% 8%;
+    --sidebar-foreground: 45 100% 96%;
+    --sidebar-primary: 45 92% 62%;
+    --sidebar-primary-foreground: 220 45% 6%;
+    --sidebar-accent: 220 30% 14%;
+    --sidebar-accent-foreground: 45 100% 96%;
+    --sidebar-border: 220 35% 15%;
+    --sidebar-ring: 45 92% 62%;
+  }
+
+  .dark {
+    --background: 220 45% 6%;
+    --foreground: 45 100% 96%;
+    --card: 220 35% 10%;
+    --card-foreground: 45 100% 96%;
+    --popover: 220 35% 10%;
+    --popover-foreground: 45 100% 96%;
+    --primary: 45 92% 62%;
+    --primary-foreground: 220 45% 6%;
+    --secondary: 220 30% 14%;
+    --secondary-foreground: 45 100% 96%;
+    --muted: 220 30% 14%;
+    --muted-foreground: 220 20% 65%;
+    --accent: 45 85% 55%;
+    --accent-foreground: 220 45% 6%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 35% 15%;
+    --input: 220 35% 12%;
+    --ring: 45 92% 62%;
+  }
+}
+
+.glow-subtle {
+  text-shadow: 0 0 12px rgba(255, 200, 80, 0.4);
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,200,80,0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 200, 80, 0.12);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.glass-strong {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    background: radial-gradient(ellipse at top, #0f2035 0%, #0D1B2A 50%, #080e17 100%);
+    min-height: 100vh;
+  }
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+}
+
+/* Glow utilities */
+.glow-gold {
+  filter: drop-shadow(0 0 8px rgba(212, 168, 67, 0.7)) drop-shadow(0 0 20px rgba(212, 168, 67, 0.4));
+}
+.glow-sun {
+  filter: drop-shadow(0 0 12px rgba(255, 200, 80, 0.9)) drop-shadow(0 0 30px rgba(255, 150, 30, 0.6));
+}
+.glow-text {
+  text-shadow: 0 0 20px rgba(212, 168, 67, 0.5);
+}
+
+/* Smooth transitions */
+.transition-sky {
+  transition: all 1.5s ease-in-out;
+}
+
+/* ── Mobile / Safe Area ── */
+.safe-area-top { padding-top: env(safe-area-inset-top); }
+.safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+
+button, [role="button"], a, .card-hover {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, [role="button"], input, select, textarea {
+  touch-action: manipulation;
+}
+
+@media (pointer: coarse) {
+  button, [role="button"], input, select, textarea {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body { background: #fff !important; }
+  .classic-daily { box-shadow: none !important; border-color: #111827 !important; }
+  .classic-daily * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+@media (min-width: 1280px) {
+  .large-text-mode { font-size: 112%; }
+}
