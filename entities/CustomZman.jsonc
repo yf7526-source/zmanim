@@ -1,0 +1,40 @@
+{
+  "name": "CustomZman",
+  "type": "object",
+  "properties": {
+    "posek_name": {
+      "type": "string",
+      "description": "Name or label for this custom zman"
+    },
+    "zman_type": {
+      "type": "string",
+      "description": "Display label for the zman type (e.g. Sof Zman Shema)"
+    },
+    "base_zman": {
+      "type": "string",
+      "description": "Base zman key to offset from (e.g. sunrise, sunset, chatzot)"
+    },
+    "offset_minutes": {
+      "type": "number",
+      "description": "Offset in minutes from the base zman"
+    },
+    "offset_direction": {
+      "type": "string",
+      "enum": [
+        "before",
+        "after"
+      ],
+      "default": "after"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this custom zman"
+    }
+  },
+  "required": [
+    "posek_name",
+    "zman_type",
+    "offset_minutes"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "name": "HalachicTerm",
+  "type": "object",
+  "properties": {
+    "term": {
+      "type": "string",
+      "description": "The Hebrew or English name of the halachic time or term"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed explanation of the term and its halachic significance"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night",
+        "general"
+      ],
+      "default": "general"
+    },
+    "source": {
+      "type": "string",
+      "description": "Halachic source or opinion (e.g. GRA, MGA, Rabbeinu Tam)"
+    },
+    "order": {
+      "type": "number",
+      "description": "Display order for sorting terms chronologically"
+    }
+  },
+  "required": [
+    "term",
+    "description"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

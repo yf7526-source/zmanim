@@ -1,0 +1,59 @@
+{
+  "name": "CityImportLog",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "Name of the source dataset imported from"
+    },
+    "imported_count": {
+      "type": "integer",
+      "description": "Number of new cities added in this run",
+      "default": 0
+    },
+    "skipped_count": {
+      "type": "integer",
+      "description": "Number of cities that already existed and were skipped",
+      "default": 0
+    },
+    "preserved_count": {
+      "type": "integer",
+      "description": "Number of existing cities whose custom candle-lighting offset was preserved",
+      "default": 0
+    },
+    "total_in_dataset": {
+      "type": "integer",
+      "description": "Total number of cities in the source dataset",
+      "default": 0
+    },
+    "details": {
+      "type": "string",
+      "description": "Human-readable summary of the import run"
+    }
+  },
+  "required": [
+    "source"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

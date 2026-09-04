@@ -1,0 +1,37 @@
+{
+  "name": "ContactMessage",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the person submitting the message"
+    },
+    "email": {
+      "type": "string",
+      "description": "Reply-to email address"
+    },
+    "message": {
+      "type": "string",
+      "description": "The message content"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "read",
+        "replied"
+      ],
+      "default": "new"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this contact message"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "message"
+  ]
+}

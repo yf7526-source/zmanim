@@ -1,0 +1,39 @@
+{
+  "name": "AnalyticsEvent",
+  "type": "object",
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "visit",
+        "location_search",
+        "gps_signin"
+      ],
+      "description": "Type of analytics event"
+    },
+    "location_name": {
+      "type": "string",
+      "description": "Location name for location_search or gps_signin events"
+    },
+    "lat": {
+      "type": "number",
+      "description": "Latitude for GPS sign-in events"
+    },
+    "lng": {
+      "type": "number",
+      "description": "Longitude for GPS sign-in events"
+    },
+    "user_email": {
+      "type": "string",
+      "description": "Email of the user who triggered the GPS sign-in"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this analytics event"
+    }
+  },
+  "required": [
+    "event_type"
+  ]
+}

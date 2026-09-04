@@ -1,0 +1,112 @@
+{
+  "name": "OrthodoxCities",
+  "type": "object",
+  "properties": {
+    "cityName": {
+      "type": "string",
+      "description": "City name"
+    },
+    "country": {
+      "type": "string",
+      "description": "Full country name"
+    },
+    "stateProvince": {
+      "type": "string",
+      "description": "State or province (nullable)"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude in decimal degrees (-90 to 90)",
+      "minimum": -90,
+      "maximum": 90
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude in decimal degrees (-180 to 180)",
+      "minimum": -180,
+      "maximum": 180
+    },
+    "elevationMeters": {
+      "type": "integer",
+      "description": "Elevation in meters (-500 to 9000)",
+      "minimum": -500,
+      "maximum": 9000
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Valid IANA timezone identifier (e.g. Asia/Jerusalem)"
+    },
+    "isIsrael": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if city is in Israel"
+    },
+    "isDiaspora": {
+      "type": "boolean",
+      "default": true,
+      "description": "True if city is outside Israel"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this city is active and selectable"
+    },
+    "defaultCandleLightingMinutes": {
+      "type": "integer",
+      "description": "Standard candle-lighting offset in minutes before sunset (Jerusalem=40, Israel=20, Diaspora=18)",
+      "default": 18
+    },
+    "population": {
+      "type": "integer",
+      "description": "City population estimate",
+      "default": 0
+    },
+    "communityType": {
+      "type": "string",
+      "enum": [
+        "major_center",
+        "regional_hub",
+        "local_community",
+        "small_outpost",
+        "emerging"
+      ],
+      "default": "local_community",
+      "description": "Size/type of the Orthodox Jewish community in this city"
+    },
+    "isOrthodoxCenter": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if this city is a recognized center of Orthodox Jewish life (major yeshivot, institutions, etc.)"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this city"
+    }
+  },
+  "required": [
+    "cityName",
+    "country",
+    "latitude",
+    "longitude",
+    "timezone"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "SearchHistory",
+  "type": "object",
+  "properties": {
+    "location_name": {
+      "type": "string",
+      "description": "Name of the searched location"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "search_date": {
+      "type": "string",
+      "format": "date",
+      "description": "The date the user searched for"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this search"
+    }
+  },
+  "required": [
+    "location_name"
+  ]
+}

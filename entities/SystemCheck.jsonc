@@ -1,0 +1,91 @@
+{
+  "name": "SystemCheck",
+  "type": "object",
+  "properties": {
+    "check_name": {
+      "type": "string",
+      "description": "Unique identifier for this check (e.g. zmanim_api_Jerusalem)"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "critical",
+        "warning",
+        "info"
+      ],
+      "default": "info",
+      "description": "Critical = broken functionality, Warning = minor inaccuracy, Info = suggestion"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "zmanim",
+        "holiday",
+        "calendar",
+        "pdf",
+        "ui",
+        "chart"
+      ],
+      "default": "zmanim",
+      "description": "Which part of the app this check covers"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the issue found"
+    },
+    "check_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the check was run"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "acknowledged",
+        "resolved"
+      ],
+      "default": "new"
+    },
+    "fix_status": {
+      "type": "string",
+      "enum": [
+        "none",
+        "fixing",
+        "fixed",
+        "failed",
+        "reverted"
+      ],
+      "default": "none",
+      "description": "AI fix status for this issue"
+    },
+    "fix_attempts": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of AI fix attempts made"
+    },
+    "fix_summary": {
+      "type": "string",
+      "description": "Summary of what the AI fix did or suggested"
+    },
+    "fix_mode": {
+      "type": "string",
+      "enum": [
+        "discuss",
+        "working"
+      ],
+      "description": "Mode used for the last fix attempt"
+    },
+    "auto_fix_enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Per-issue override for auto-fix; null/undefined = use global setting"
+    }
+  },
+  "required": [
+    "check_name",
+    "severity",
+    "category",
+    "description"
+  ]
+}

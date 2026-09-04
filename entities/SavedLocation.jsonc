@@ -1,0 +1,41 @@
+{
+  "name": "SavedLocation",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "User-given name for the location"
+    },
+    "lat": {
+      "type": "number",
+      "description": "Latitude"
+    },
+    "lng": {
+      "type": "number",
+      "description": "Longitude"
+    },
+    "elevation": {
+      "type": "number",
+      "default": 0,
+      "description": "Elevation in meters"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "IANA timezone identifier"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country name"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this saved location"
+    }
+  },
+  "required": [
+    "label",
+    "lat",
+    "lng"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "UserEvent",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Event title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Event details"
+    },
+    "event_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Start date of the event"
+    },
+    "start_time": {
+      "type": "string",
+      "description": "Start time HH:MM"
+    },
+    "end_time": {
+      "type": "string",
+      "description": "End time HH:MM"
+    },
+    "recurrence": {
+      "type": "string",
+      "enum": [
+        "none",
+        "daily",
+        "weekly",
+        "monthly",
+        "yearly"
+      ],
+      "default": "none"
+    },
+    "location_name": {
+      "type": "string",
+      "description": "Where the event takes place"
+    }
+  },
+  "required": [
+    "title",
+    "event_date"
+  ]
+}

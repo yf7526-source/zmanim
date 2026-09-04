@@ -1,0 +1,45 @@
+{
+  "name": "PdfExportHistory",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Label for the export (e.g. month name or week range)"
+    },
+    "format": {
+      "type": "string",
+      "description": "PDF format used (clean, earth, compact)"
+    },
+    "view_mode": {
+      "type": "string",
+      "enum": [
+        "monthly",
+        "weekly",
+        "yearly"
+      ]
+    },
+    "location_name": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "zman_count": {
+      "type": "number",
+      "description": "Number of zmanim columns included"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional notes about this export"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

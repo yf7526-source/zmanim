@@ -1,0 +1,35 @@
+{
+  "name": "BugReport",
+  "type": "object",
+  "properties": {
+    "subject": {
+      "type": "string",
+      "description": "Brief title of the bug or feature request"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "bug",
+        "feature_request"
+      ],
+      "default": "bug"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "in_progress",
+        "resolved"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "subject",
+    "description"
+  ]
+}

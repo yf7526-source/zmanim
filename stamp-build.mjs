@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root = process.cwd();
+const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+const now = new Date();
+const stamp = now.toISOString().replace(/[-:]/g, '').replace(/\..+/, 'Z');
+const cacheVersion = `solarzmanim-${pkg.version}-${stamp}`;
+const swPath = path.join(root, 'public', 'sw.js');
+let sw = fs.readFileSync(swPath, 'utf8');
+sw = sw.replace(/const CACHE_VERSION = '[^']+';/, `const CACHE_VERSION = '${cacheVersion}';`);
+fs.writeFileSync(swPath, sw);
+fs.writeFileSync(path.join(root, 'public', 'build-meta.json'), JSON.stringify({ name: pkg.name, version: pkg.version, builtAt: now.toISOString(), cacheVersion }, null, 2) + '\n');
+console.log(`Stamped ${cacheVersion}`);
