@@ -88,4 +88,8 @@
     "vite": "^6.1.0",
     "vitest": "^2.1.9"
   }
+  "scripts": {
+  "prebuild": "node -e \"const fs=require('fs');fs.readdirSync('.').filter(f=>f.endsWith('.jsx')||f.endsWith('.js')).forEach(f=>{let c=fs.readFileSync(f,'utf8');let u=c.replace(/(from\\s+['\"]|import\\s+['\"])(\\src\\/|@\\/|src\\/)/g,'\$1./');if(c!==u)fs.writeFileSync(f,u);});\"",
+  "build": "vite build"
+}
 }
