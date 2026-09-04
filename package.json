@@ -93,3 +93,20 @@
   "build": "vite build"
 }
 }
+
+node -e "
+const fs = require('fs');
+const path = require('path');
+
+const files = fs.readdirSync('.').filter(f => f.endsWith('.jsx') || f.endsWith('.js'));
+files.forEach(file => {
+  let content = fs.readFileSync(file, 'utf8');
+  let updated = content
+    .replace(/(from\s+['\"])(\/src\/|@\/|src\/)/g, '\$1./')
+    .replace(/(import\s+['\"])(\/src\/|@\/|src\/)/g, '\$1./');
+  if (content !== updated) {
+    fs.writeFileSync(file, updated);
+    console.log('Fixed imports in:', file);
+  }
+});
+"
