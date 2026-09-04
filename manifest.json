@@ -1,0 +1,40 @@
+{
+  "id": "/",
+  "name": "SolarZmanim",
+  "short_name": "SolarZmanim",
+  "description": "Accurate halachic zmanim, solar & lunar data, and Jewish calendar tools.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0D1B2A",
+  "theme_color": "#d4a84b",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Today's Zmanim",
+      "short_name": "Zmanim",
+      "url": "/?tab=zmanim",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Monthly Chart",
+      "short_name": "Monthly",
+      "url": "/?tab=monthly",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

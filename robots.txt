@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /dashboard
+Disallow: /settings
+Disallow: /profile
+Disallow: /locations
+Disallow: /saved-locations
+Disallow: /export-history
+Disallow: /search-history
+Disallow: /report-issue
+Disallow: /system-status
+Disallow: /map-picker
+
+Sitemap: https://solarzmanim.app/sitemap.xml

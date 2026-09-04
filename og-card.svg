@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#0f2035"/>
+      <stop offset="50%" stop-color="#0D1B2A"/>
+      <stop offset="100%" stop-color="#080e17"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd966"/>
+      <stop offset="60%" stop-color="#d4a84b"/>
+      <stop offset="100%" stop-color="#b8862e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="260" r="140" fill="url(#sun)"/>
+  <circle cx="600" cy="260" r="70" fill="#ffd966" opacity="0.9"/>
+  <text x="600" y="440" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800" fill="#f5e9c8">SolarZmanim</text>
+  <text x="600" y="490" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="500" fill="#d4a84b" opacity="0.8">Halachic Zmanim &amp; Sun Position</text>
+  <text x="600" y="560" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" fill="#f5e9c8" opacity="0.4">solarzmanim.app</text>
+</svg>
